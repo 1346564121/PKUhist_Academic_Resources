@@ -1,0 +1,258 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title>PKUhist Helper - 学术资源聚合</title><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 40px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 2; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px !important; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  html.blink-to-pdf { font-size: 13px; }
+  .typora-export #write { padding-left: 32px; padding-right: 32px; padding-bottom: 0px; break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.md-inline-math .MathJax_SVG .noError { display: none !important; }
+.html-for-mac .inline-math-svg .MathJax_SVG { vertical-align: 0.2px; }
+.md-math-block .MathJax_SVG_Display { text-align: center; margin: 0px; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; overflow-y: hidden; display: block !important; }
+.MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
+.MathJax_SVG .MJX-monospace { font-family: var(--monospace); }
+.MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
+.MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
+.MathJax_SVG * { transition: none 0s ease 0s; }
+.MathJax_SVG_Display svg { vertical-align: middle !important; margin-bottom: 0px !important; margin-top: 0px !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="mermaid"] svg, [lang="flow"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+
+
+:root { --active-file-bg-color: rgba(32, 43, 51, 0.63); --active-file-text-color: white; --bg-color: #f9f5ed; --text-color: #6e4832; --side-bar-bg-color: #f5f5f5; --control-text-color: #666; --primary-color: #6e4832; }
+html { color: rgb(110, 72, 50); background: rgb(249, 245, 237); text-size-adjust: 100%; text-rendering: optimizelegibility; font-size: 16px; -webkit-font-smoothing: initial; }
+content { background: rgb(249, 245, 237); }
+#write { max-width: 960px; padding-top: 2em; padding-left: 60px; padding-right: 60px; min-height: calc(100vh - 6em); -webkit-font-smoothing: antialiased; font-size: 16px; }
+.typora-node #write { min-height: calc(100% - 6em); }
+pre.md-meta-block { color: rgba(146, 115, 91, 0.81); padding: 1em; border-radius: 2px; font-size: 14px; background: rgba(251, 246, 222, 0.5); }
+@media screen and (max-width: 800px) {
+  html { font-size: 14px; }
+  #write { padding-left: 30px; background: rgb(249, 245, 237); padding-right: 30px; font-size: 14px; }
+}
+@media screen and (min-width: 1100px) {
+  body, #footer-word-count-info { background: rgb(245, 245, 245); }
+  body.pin-outline, .pin-outline #footer-word-count-info, .pin-outline footer { background: rgb(249, 245, 237); }
+  #write { max-width: 1000px; padding: 40px 60px; background: rgb(249, 245, 237); margin: 3em auto; }
+  .pin-outline #write { max-width: 1000px; background: rgb(249, 245, 237); margin: 0px; border: 0px; padding-left: 60px; padding-right: 60px; }
+  footer { background-color: transparent; }
+}
+@media screen and (min-width: 1300px) {
+  body.pin-outline, .pin-outline #footer-word-count-info, .pin-outline footer { background: rgb(249, 245, 237); }
+  .pin-outline #write { max-width: 1000px; padding: 40px 60px; background: rgb(249, 245, 237); margin: 3em auto; }
+  .pin-outline footer { background-color: transparent; }
+  #footer-word-count-info { background: rgb(245, 245, 245); }
+}
+body, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, hr, button, article, aside, details, figcaption, figure, footer, header, menu, nav, section { margin: 0px; padding: 0px; }
+article, aside, details, figcaption, figure, footer, header, menu, nav, section { display: block; }
+audio, canvas, video { display: inline-block; }
+body, button, input, select, textarea { font: 400 1em/1.8 "font/han.otf", "PingFang SC", "Lantinghei SC", "Microsoft Yahei", "Hiragino Sans GB", "Microsoft Sans Serif", "WenQuanYi Micro Hei", sans; }
+body { font-family: "font/han.otf", "PingFang SC", "Lantinghei SC", "Microsoft Yahei", "Hiragino Sans GB", "Microsoft Sans Serif", "WenQuanYi Micro Hei", sans; }
+h1, h2, h3, h4, h5, h6 { font-family: "font/han.otf", "PingFang SC", "Lantinghei SC", "Microsoft Yahei", "Hiragino Sans GB", "Microsoft Sans Serif", "WenQuanYi Micro Hei", sans; -webkit-font-smoothing: initial; font-weight: 100; color: var(--text-color); line-height: 1.35; font-variant-numeric: lining-nums; margin-bottom: 1em; }
+em { font-family: "font/han.otf", Georgia-Italic, STSongti-SC-Light, serif; }
+strong em, em strong { font-family: "font/han.otf", Georgia-BoldItalic, STSongti-SC-Regular, serif; }
+table { border-collapse: collapse; border-spacing: 0px; }
+fieldset, img { border: 0px; }
+img { background: white; border-radius: 0.2rem; padding: 0.3rem; box-shadow: gray 1px 2px 4px; text-align: center; }
+blockquote { position: relative; color: rgba(146, 115, 91, 0.81); font-weight: 400; border-left: 2px solid rgb(110, 72, 50); padding-left: 1rem; margin: 1em 3em 1em 1em; }
+@media only screen and (max-width: 640px) {
+  blockquote { margin: 1em 0px; }
+}
+acronym, abbr { border-bottom: 1px dotted; font-variant: normal; }
+abbr { cursor: help; }
+address, caption, cite, code, dfn, th, var { font-style: normal; font-weight: 400; }
+ul, ol { list-style: none; }
+caption, th { text-align: left; }
+q::before, q::after { content: ""; }
+sub, sup { font-size: 75%; line-height: 0; position: relative; }
+:root sub, :root sup { vertical-align: baseline; }
+sup { top: -0.5em; }
+sub { bottom: -0.25em; }
+a { color: rgb(68, 132, 194); }
+a:hover { text-decoration: underline; }
+#write a { font-weight: normal; }
+#write a:hover { text-decoration: none; border-bottom: 1px solid rgb(68, 132, 194); }
+ins, a { text-decoration: none; }
+mark { background: rgb(255, 253, 209); border-bottom: 1px solid rgb(255, 237, 206); padding: 2px; margin: 0px 5px; }
+pre, code, pre tt { font-family: Courier, "Courier New", monospace; }
+#write .md-fences { border: 1px solid rgb(221, 221, 221); padding: 1em 0.5em; display: block; }
+hr { border-top: none; border-right: none; border-left: none; border-image: initial; border-bottom: 1px solid rgb(207, 207, 207); margin-bottom: 0.8em; height: 10px; }
+strong, b { font-weight: 700; }
+#write p, #write .md-fences, #write ul, #write ol, #write dl, #write form, #write hr, #write figure, #write-p, #write-pre, #write-ul, #write-ol, #write-dl, #write-form, #write-hr, #write-table, blockquote { margin-bottom: 1.2em; }
+html { font-family: "font/han.otf", "PingFang SC", Verdana, "Helvetica Neue", "Microsoft Yahei", "Hiragino Sans GB", "Microsoft Sans Serif", "WenQuanYi Micro Hei", sans-serif; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write-h1, #write-h2, #write-h3, #write-h4, #write-h5, #write-h6 { margin-bottom: 0.6em; line-height: 1.35; color: rgb(110, 72, 50); font-weight: bolder; }
+#write h1, #write-h1 { font-size: 2.4em; padding-bottom: 0.3em; border-bottom: 3px double rgb(238, 238, 238); }
+#write h2, #write-h2 { font-size: 1.8em; }
+#write h3, #write-h3 { font-size: 1.6em; }
+#write h4, #write-h4 { font-size: 1.4em; }
+#write h5, #write h6, #write-h5, #write-h6 { font-size: 1.2em; }
+#write ul, #write-ul { margin-left: 1.3em; list-style: disc; }
+#write ol, #write-ol { list-style: decimal; margin-left: 1.9em; }
+#write li ul, #write li ol, #write-ul ul, #write-ul ol, #write-ol ul, #write-ol ol { margin-bottom: 0.8em; margin-left: 2em; }
+#write li ul, #write-ul ul, #write-ol ul { list-style: circle; }
+[mdtype="table_row"] > th, [mdtype="table_row"] > td { border: 1px solid rgb(221, 221, 221); padding: 0.5em 1em; color: rgba(110, 72, 50, 0.74); }
+#write table th, #write-table th { background: rgb(251, 251, 251); }
+#write table thead th, #write-table thead th { background: rgba(251, 240, 211, 0.76); }
+#write table caption { border-bottom: none; }
+#write em { font-weight: inherit; font-style: inherit; }
+li > p { margin-bottom: 0px !important; }
+#write img { max-width: 100%; }
+a.md-toc-inner { border-bottom: 0px !important; }
+.md-toc-h1:first-of-type:last-of-type { display: none; }
+.md-toc { font-size: inherit; }
+.md-toc-h1 .md-toc-inner { font-weight: normal; }
+.md-table-edit th { padding: 0px !important; border: 0px !important; }
+.mac-seamless-mode #write { min-height: calc((100vh - 6em) - 20px); }
+.typora-quick-open-item.active { color: var(--active-file-text-color); }
+.in-text-selection, ::selection { background: var(--active-file-bg-color); text-shadow: none; color: white; }
+.btn-primary { background-color: rgb(45, 45, 45); border-color: rgb(2, 2, 2); }
+.btn-primary:hover, .btn-primary:focus, .btn-primary.focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary { background-color: rgb(78, 76, 78); border: rgb(78, 76, 78); }
+#preference-dialog .modal-content { background: rgb(110, 117, 122); --bg-color: #6e757a; --text-color: #f1f1f1; color: rgb(241, 241, 241); }
+sup.md-footnote { color: rgb(110, 72, 50); }
+.task-list { list-style: none !important; }
+.task-list-item input { width: 1.25rem; height: 1.25rem; display: block; -webkit-appearance: initial; left: -18px; }
+.task-list-item input:focus { outline: none; box-shadow: none; }
+.task-list-item input::before { border: 2px solid rgb(110, 72, 50); border-radius: 1.2rem; width: 1.2rem; height: 1.2rem; content: " "; transition: background-color 200ms ease-in-out 0s; display: block; }
+.task-list-item input:checked::before, .task-list-item input[checked]::before { -webkit-appearance: initial; background: rgb(110, 72, 50); border-width: 2px; display: inline-block; transition: background-color 200ms ease-in-out 0s; }
+.task-list-item input:checked::after, .task-list-item input[checked]::after { opacity: 1; }
+.task-list-item input::after { transition: opacity 0.05s ease-in-out 0s; transform: rotate(-45deg); position: absolute; top: 0.325rem; left: 0.28125rem; width: 0.6375rem; height: 0.4rem; border-width: 0px 0px 3px 3px; border-bottom-style: solid; border-left-style: solid; border-bottom-color: rgb(249, 245, 237); border-left-color: rgb(249, 245, 237); border-image: initial; border-top-style: initial; border-top-color: initial; border-right-style: initial; border-right-color: initial; content: " "; opacity: 0; }
+.task-list-done { text-decoration: line-through; }
+.md-grid-board a:hover, .md-grid-board a.md-active { border-color: rgb(161, 161, 161); background: rgb(249, 237, 197); }
+.md-grid-board tr[row="1"] a:hover, .md-grid-board tr[row="1"] a.md-active { background: rgb(94, 62, 43); }
+
+
+</style>
+</head>
+<body class='typora-export os-windows' >
+<div  id='write'  class = 'is-node'><h1><a name="centerstrongspan-stylefont-familygeorgiapkuhistspan-helperstrongbrspan-stylefont-size80font-family--kaiti学术资源聚合spanspancenter" class="md-header-anchor"></a><center><strong><span style="font-family:Georgia"><span>PKUhist</span></span><span> Helper</span></strong><br><span style="font-size:80%;font-family = KaiTi"><span>学术资源聚合</span></span></span></center></h1><h2><a name="书籍" class="md-header-anchor"></a><span>书籍</span></h2><ul><li><h3><a name="纸质书" class="md-header-anchor"></a><span>纸质书</span></h3><ul><li><span>一手：</span><a href='http://www.dangdang.com/'><span>当当</span></a><span> </span><a href='https://www.jd.com/'><span>京东</span></a><span> </span><a href='https://www.taobao.com/'><span>淘宝</span></a><span> </span><a href='https://www.pinduoduo.com/'><span>拼多多</span></a><span> </span><a href='https://www.z.cn'><span>亚马逊</span></a><span> </span></li><li><span>二手： </span><a href='http://www.bookschina.com/'><span>中图</span></a><span> </span><a href='http://www.booyee.com.cn/'><span>布衣</span></a><span> </span><a href='https://www.kongfz.com/'><span>孔夫子</span></a><span> </span><a href='https://www.duozhuayu.com/'><span>多抓鱼</span></a><span> </span><a href='https://www.youlu.net/'><span>有路</span></a><span>  </span><a href='https://www.jiushujie.com/'><span>旧书街</span></a></li><li><span>APP：转转 闲鱼 熊猫格子</span></li></ul></li><li><h3><a name="电子书" class="md-header-anchor"></a><span>电子书</span></h3><ul><li><span>免费：</span><a href='https://ebook.chongbuluo.com/'><span>电子书搜索</span></a><span> </span><a href='http://cadal.edu.cn/index/home'><span>CADAL</span></a><span> </span><a href='http://gen.lib.rus.ec/'><span>Library Genesis</span></a><span> </span><a href='http://162.105.138.126/Usp/apabi_usp/?pid=own.search&amp;orgid=apabi_usp&amp;dbtype=1&amp;dt=META_DESi35_8&amp;cult=CN'><span>电子教参</span></a><span> </span><a href='https://lorefree.com/'><span>Lorefree</span></a><span> </span><a href='https://book.tstrs.me/'><span>I-book</span></a><span> </span><a href='https://www.xiaobaipan.com/'><span>小白盘</span></a><span> </span><a href='https://www.chongbuluo.com/'><span>虫部落</span></a><span> </span><a href='https://epubw.com/?__cf_chl_jschl_tk__=85dfe2e956fa2e4dc007747c5efd1deac0abfb41-1592101527-0-ATXBWW6WqmxAJcLDLPlNyz9jlxoIHUhdzQv6M3PFn7NzgGxLbU-53kHZXMiOdWLRuqOwQ7I-eGP0wmR7nJvaQ0b6U5daIgUm4pe6vg_T3gIDDittd1ZJOuaAzCrU3DPo9vLrCx13kn2EGiVYvC6RUjp6VmMBh9U65XA6xWWh6rdA1BB9ghACw4GyWPV0fyTCrFF7jm7oITAkIY1Uz8HhJB3TpCB3e-q_ndp1LRRro_0EkIH5qClBLUFuLxF86AfvO1EBusMdHkuywlNTuLN6qV4'><span>ePubw</span></a><span> </span><a href='https://epdf.pub/en/'><span>EPDF</span></a><span> </span><a href='http://www.ucdrs.net/'><span>图盟</span></a><span> </span><a href='http://haodoo.net/'><span>好读</span></a></li><li><span>付费：</span><a href='http://www.101vv.com/'><span>一零一</span></a><span> </span><a href='http://www.shuxing.cc/'><span>书星</span></a><span> </span><a href='https://www.iamtxt.com/tags/catlogue'><span>iamtxt</span></a><span> </span><a href='http://www.iread.cf/'><span>iread</span></a><span> </span><a href='https://bbs.gxsd.com.cn/'><span>国学数典</span></a></li><li><span>APP：藏书馆 微信读书 Kindle</span></li></ul></li></ul><h2><a name="论文期刊" class="md-header-anchor"></a><span>论文期刊</span></h2><ul><li><h3><a name="通用" class="md-header-anchor"></a><span>通用</span></h3><ul><li><a href='https://site.sciping.com/'><span>科塔</span></a></li></ul></li><li><h3><a name="中文" class="md-header-anchor"></a><span>中文</span></h3><ul><li><a href='https://www.cnki.net/'><span>知网</span></a><span> </span><a href='http://www.cqvip.com/'><span>维普</span></a><span> </span><a href='wanfangdata.com.cn/'><span>万方</span></a><span> </span><a href='http://www.ucdrs.net/'><span>图盟</span></a><span> </span><a href='http://www.nssd.org/'><span>NSSD</span></a><span> </span><a href='http://dbnav.lib.pku.edu.cn/node/11866'><span>TWS</span></a><span> </span><a href='https://thesis.lib.pku.edu.cn/'><span>北大学位论文</span></a><span> </span><a href='http://www.airitilibrary.cn/'><span>台湾学术</span></a><span> </span><a href='http://www.ncpssd.org/index.aspx'><span>CASS</span></a></li></ul></li><li><h3><a name="外文" class="md-header-anchor"></a><span>外文</span></h3><ul><li><a href='https://www.jstor.org/'><span>JSTOR</span></a><span> </span><a href='https://search.proquest.com/pao/index?accountid=13151'><span>PAO</span></a><span> </span><a href='http://www.pqdtcn.com/'><span>PQDT</span></a><span> </span><a href='https://firstsearch.oclc.org/WebZ/FSPrefs?entityjsdetect=:javascript=true:screensize=large:sessionid=fsap06pxm1-1680-kbdcvl51-d0oxi6:entitypagenum=1:0'><span>WorldCat</span></a><span> </span><a href='http://www.socolar.com/'><span>SOCOLAR</span></a><span> </span><a href='https://eric.ed.gov/?'><span>ERIC</span></a><span> </span><a href='https://onlinelibrary.wiley.com/'><span>Wiley</span></a><span> </span><a href='http://www.gutenberg.org/'><span>Gutenberg</span></a><span> </span></li></ul></li></ul><h2><a name="数据库" class="md-header-anchor"></a><span>数据库</span></h2><ul><li><h3><a name="通用" class="md-header-anchor"></a><span>通用</span></h3><ul><li><a href='https://www.wdl.org/zh/'><span>WDL</span></a><span> </span><a href='https://www.allhistory.com/'><span>全历史</span></a><span> </span><a href='[http://dbnav.lib.pku.edu.cn/newhomepage?field_fenlei_xueke_tid%5B%5D=21&amp;sort_bef_combine=field_xueke_dalei_value+ASC&amp;sort_bef_combine=field_xueke_dalei_value+ASC](http://dbnav.lib.pku.edu.cn/newhomepage?field_fenlei_xueke_tid[]=21&amp;sort_bef_combine=field_xueke_dalei_value+ASC&amp;sort_bef_combine=field_xueke_dalei_value+ASC)'><span>北大数据库导航</span></a><span> </span><a href='[http://dbnav.lib.pku.edu.cn/content/amd%E5%8E%86%E5%8F%B2%E4%B8%8E%E6%96%87%E5%8C%96%E7%8F%8D%E7%A8%80%E5%8F%B2%E6%96%99%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9B%86%E6%88%90%EF%BC%88%E5%85%A8%E9%83%A862%E4%B8%AA%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%89](http://dbnav.lib.pku.edu.cn/content/amd历史与文化珍稀史料数据库集成（全部62个数据库）)'><span>AMD历史与文化珍稀史料数据库集成</span></a><span> </span><a href='http://dh.ersjk.com/jsp/front/prodlist_jd.jsp;jsessionid=C6FCAE496339B19AB906BCE31776CAD3'><span>爱如生典海</span></a><span> </span><a href='https://www.icpsr.umich.edu/web/pages/index.html'><span>ICPSR</span></a><span> </span></li></ul></li><li><h3><a name="中国史" class="md-header-anchor"></a><span>中国史</span></h3><ul><li><span>通用：</span><a href='https://www.ageeye.cn/'><span>发现中国</span></a><span> </span><a href='http://dbnav.lib.pku.edu.cn/node/10582'><span>基本古籍库</span></a><span> </span><a href='http://www.ucdrs.net/'><span>图盟</span></a><span>  </span><a href='http://www.cashl.edu.cn/node/5'><span>开世览文</span></a><span> </span><a href='https://www.lib.ntu.edu.tw/'><span>台大图书馆</span></a><span> </span><a href='http://bz.nlcpress.com/library/publish/default/Login.jsp'><span>中国历史文献总库</span></a><span> </span></li><li><span>古代：</span><a href='http://dbnav.lib.pku.edu.cn/node/10706'><span>二十五史</span></a><span> </span><a href='http://dbnav.lib.pku.edu.cn/node/11089'><span>四部丛刊</span></a><span> </span><a href='http://dbnav.lib.pku.edu.cn/node/10750'><span>四库全书</span></a><span> </span><a href='http://dbnav.lib.pku.edu.cn/node/10582'><span>经典古籍库</span></a><span> </span><a href='http://dbnav.lib.pku.edu.cn/node/11873'><span>大明会典</span></a><span> </span><a href='http://dbnav.lib.pku.edu.cn/node/11872'><span>大明实录</span></a><span> </span><a href='http://dbnav.lib.pku.edu.cn/node/10742'><span>大清五部会典</span></a><span> </span><a href='http://dbnav.lib.pku.edu.cn/node/10984'><span>大清历朝实录</span></a><span> </span><a href='http://dbnav.lib.pku.edu.cn/node/10662'><span>十通</span></a><span> </span><a href='http://dbnav.lib.pku.edu.cn/node/11867'><span>韩使燕行录</span></a><span> </span><a href='http://dbnav.lib.pku.edu.cn/node/11896'><span>汉达文库</span></a><span> </span><a href='http://dbnav.lib.pku.edu.cn/node/11855'><span>中国金石总录</span></a><span> </span><a href='http://dbnav.lib.pku.edu.cn/node/10840'><span>中国历代石刻史料汇编</span></a><span> </span><a href='http://dbnav.lib.pku.edu.cn/node/11863'><span>中国方志库</span></a><span> </span><a href='http://dbnav.lib.pku.edu.cn/node/11978'><span>雕龙</span></a><span> </span><a href='http://dbnav.lib.pku.edu.cn/node/11900'><span>鼎秀</span></a><span> </span><a href='https://new.shuge.org/'><span>书格</span></a><span> </span><a href='http://skqs.lib.ntnu.edu.tw/dragon/'><span>寒泉</span></a><span> </span><a href='http://diglweb.zjlib.cn:8081/zjtsg/mingren/index.htm'><span>名人图像</span></a><span> </span><a href='http://www.guoxuedashi.com/'><span>国学大师</span></a><span> </span><a href='https://www.gujiguan.com/'><span>古籍馆</span></a><span> </span><a href='http://www.guoxue.com/'><span>国学</span></a><span> </span><a href='http://39.96.59.69/'><span>清史数据共享平台</span></a><span> </span><a href='https://www.zdic.net/'><span>汉典</span></a></li><li><span>近现代：</span><a href='http://db.ersjk.com/'><span>爱如生：晚清民国大报库</span></a><span> </span><a href='http://tk.cepiec.com.cn/SP/'><span>中国近代报刊数据库</span></a><span> </span><a href='http://bksy.lib.pku.edu.cn/search/advance'><span>字林洋行中英文报纸(1850～1951)全文数据库</span></a><span>  </span><a href='http://tk.cepiec.com.cn/tknewsc/tknewskm?@@0.36583513442095605'><span>大公报：1902-1949</span></a><span> </span><a href='https://www.hytung.cn/'><span>翰堂典藏</span></a><span> </span><a href='https://www.cnbksy.com/'><span>全国报刊索引数据库</span></a><span> </span><a href='http://repository.lib.cuhk.edu.hk/sc/collection/shengxuanhuai'><span>港中大盛宣怀档案数据库</span></a><span> </span><a href='http://dbnav.lib.pku.edu.cn/node/11773'><span>晚清民国旧报刊</span></a><span> </span><a href='http://dbnav.lib.pku.edu.cn/node/11839'><span>晚清期刊</span></a><span> </span><a href='http://dbnav.lib.pku.edu.cn/node/11839'><span>民国期刊</span></a><span> </span><a href='http://dbnav.lib.pku.edu.cn/node/10983'><span>大成老旧刊</span></a><span> </span><a href='http://dbnav.lib.pku.edu.cn/node/11808'><span>申报</span></a><span> </span><a href='http://dbnav.lib.pku.edu.cn/node/10661'><span>近代中国</span></a><span> </span><a href='http://dbnav.lib.pku.edu.cn/node/10548'><span>海外收藏的中国近代史珍稀史料文献库</span></a><span> </span><a href='http://dbnav.lib.pku.edu.cn/node/11108'><span>英国外交部档案：中国</span></a><span> </span><a href='http://dbnav.lib.pku.edu.cn/node/10537'><span>参考消息</span></a><span> </span><a href='http://dbnav.lib.pku.edu.cn/node/10735'><span>人民日报</span></a><span> </span><a href='http://www.modernhistory.org.cn/index.htm'><span>抗日战争与近代中日关系文献数据平台</span></a><span> </span><a href='http://dangshi.dachengdata.com/tuijian/showTuijianList.action'><span>中共党史</span></a><span> </span></li><li><span>其他：</span><a href='http://mirror.lib.pku.edu.cn/tr/'><span>台湾文献丛刊</span></a><span> </span><a href='http://wrd2016.library.sh.cn/channel/stjp/'><span>家谱</span></a><span> </span><a href='http://www.shufazidian.com/'><span>书法字典</span></a></li></ul></li><li><h3><a name="世界史" class="md-header-anchor"></a><span>世界史</span></h3><ul><li><span>通用：</span><a href='http://dbnav.lib.pku.edu.cn/node/11831'><span>列国志</span></a><span> </span><a href='http://dbnav.lib.pku.edu.cn/node/11073'><span>ECCO</span></a><span> </span><a href='http://dbnav.lib.pku.edu.cn/node/11871'><span>CAE</span></a><span> </span><a href='https://infoweb.newsbank.com/apps/readex/welcome?p=ARDX'><span>全球研究数字化典藏</span></a><span> </span><a href='https://link.springer.com/'><span>Springer</span></a><span> </span><a href='https://www.oapen.org/home'><span>OAPEN</span></a><span> </span></li><li><span>古典：</span><a href='http://dbnav.lib.pku.edu.cn/node/11927'><span>New Pauly</span></a><span> </span><a href='http://www.brepolis.net/'><span>Brepolis</span></a><span> </span><a href='https://www.loebclassics.com/'><span>Loeb</span></a><span> </span></li><li><span>北美：</span><a href='loc.gov'><span>LOC</span></a><span> </span><a href='http://dbnav.lib.pku.edu.cn/node/10936'><span>美国早期印刷品</span></a><span>  </span><a href='http://dbnav.lib.pku.edu.cn/node/11131'><span>AHN</span></a><span> </span><a href='http://dbnav.lib.pku.edu.cn/node/10909'><span>DDRS</span></a><span> </span><a href='http://dbnav.lib.pku.edu.cn/node/10691'><span>DNSA</span></a><span> </span><a href='http://dbnav.lib.pku.edu.cn/node/11919'><span>PHV</span></a><span> </span><a href='http://dbnav.lib.pku.edu.cn/node/10929'><span>USCSS</span></a><span> </span><a href='https://infoweb.newsbank.com/apps/readex/welcome?p=TOPRIGHTS'><span>美国民权史</span></a><span> </span><a href='http://www.colonialamerica.amdigital.co.uk/'><span>Colonial America</span></a><span> </span><a href='https://infoweb.newsbank.com/iw-search/we/Homepage?p_action=doc&amp;p_theme=current&amp;p_nbid=V53O4CHFMTU5MjAzNzg5OC43MTY4MDk6MToxMzoyMjIuMjkuMTguMTQ2'><span>美国历史报纸</span></a><span> </span><a href='https://dp.la/'><span>DPLA</span></a><span> </span><a href='https://palmm.digital.flvc.org/islandora/object/palmm%3Aroot'><span>Palmm</span></a><span> </span></li><li><span>拉美/西班牙：</span><a href='http://www.digitaliapublishing.com/'><span>Digitalia</span></a><span> </span><a href='https://firstsearch.oclc.org/WebZ/FSPrefs?entityjsdetect=:javascript=true:screensize=large:sessionid=fsap05pxm1-1680-kbdemvpj-oiyz19:entitypagenum=1:0'><span>OCLC</span></a><span> </span></li><li><span>英国：</span><a href='http://dbnav.lib.pku.edu.cn/node/10783'><span>EEBO</span></a><span> </span><a href='http://www.churchillarchive.com/'><span>丘吉尔</span></a><span> </span><a href='https://ada.edu.au/'><span>大英图书馆报纸</span></a><span> </span><a href='https://search.proquest.com/britishperiodicals/index'><span>British Periodicals</span></a><span> </span><a href='https://go.gale.com/ps/start.do?p=TTDA&amp;u=peking'><span>泰晤士报</span></a><span> </span><a href='http://infotrac.galegroup.com/default/peking?db=GDSC'><span>Archives Unbound</span></a></li><li><span>法国：</span><a href='https://www.bnf.fr/fr'><span>BNF</span></a></li><li><span>德国：</span><a href='http://www.digizeitschriften.de/startseite/'><span>DZ</span></a><span> </span><a href='[https://link.springer.com/search?package=41202&amp;facet-content-type=%22Book%22](https://link.springer.com/search?package=41202&amp;facet-content-type=&quot;Book&quot;)'><span>Springer</span></a></li><li><span>俄罗斯：</span><a href='https://dlib.eastview.com/browse/publication/9305'><span>真理报</span></a><span> </span><a href='https://dlib.eastview.com/browse/udb/1790'><span>苏维埃文化报</span></a><span> </span><a href='https://dlib.eastview.com/browse/udb/1450'><span>电影艺术</span></a><span> </span></li><li><span>日本：</span><a href='https://j-dac.jp/top/default/index.html'><span>J-DAC</span></a><span> </span><a href='https://japanknowledge.com/lib/search/basic/index.html?q1=&amp;r1=1&amp;phrase=0&amp;sort=1&amp;rows=20&amp;pageno=1&amp;s=f'><span>群书类丛</span></a><span> </span><a href='http://database.asahi.com/index.shtml'><span>朝日新闻</span></a><span> </span></li><li><span>澳大利亚：</span><a href='https://ada.edu.au/'><span>ADA</span></a></li><li><span>伊斯兰：</span><a href='http://dbnav.lib.pku.edu.cn/node/11103'><span>英国外交部机密文件：中东</span></a><span> </span><a href='[https://referenceworks.brillonline.com/cluster/Encyclopaedia%20of%20Islam](https://referenceworks.brillonline.com/cluster/Encyclopaedia of Islam)'><span>伊斯兰大百科全书</span></a><span> </span><a href='https://dlib.eastview.com/'><span>阿拉伯语电子书</span></a><span> </span></li><li><span>南亚：</span><a href='http://www.southasiaarchive.com/unauthenticated'><span>SAA</span></a></li><li><span>非洲：</span><a href='https://infoweb.newsbank.com/iw-search/we/Evans?p_product=AFRHCC&amp;p_action=keyword&amp;p_theme=eai&amp;p_nbid=Q5CI55GOMTU5MjAzNzgxNy43NjAwMDg6MToxMzoyMjIuMjkuMTguMTQ2&amp;p_clear_search=yes&amp;d_refprod=AFRHCC&amp;&amp;s_startsearch=keyword'><span>AHC</span></a><span> </span></li><li><span>其他：</span><a href='http://www.cap.amdigital.co.uk/'><span>中国、美国与太平洋</span></a><span> </span><a href='http://go.gale.com/choa/start.do?p=CHOA&amp;u=peking&amp;authCount=1'><span>Chatham</span></a><span> </span><a href='https://www.marxists.org/chinese/index.html'><span>马克思主义文库</span></a></li></ul></li></ul><h2><a name="视频" class="md-header-anchor"></a><span>视频</span></h2><ul><li><h3><a name="通用" class="md-header-anchor"></a><span>通用</span></h3><ul><li><a href='https://www.sohu.com/a/217592282_501364'><span>B站历史公开课大全</span></a></li><li><a href='http://media.lib.pku.edu.cn/index.php?m=content&amp;c=index&amp;a=lists&amp;header_id=57&amp;keyword=&amp;show=&amp;catid=31&amp;language=&amp;discipline=3572&amp;kcckzy=&amp;play_type=&amp;search_y=&amp;search_m='><span>北大图书馆历史学课程多媒体资源</span></a></li></ul></li><li><h3><a name="本系老师公开课" class="md-header-anchor"></a><span>本系老师公开课</span></h3><ul><li><a href='https://www.sohu.com/a/395995899_385778'><span>阎步克：2020版课件</span></a><span> </span></li><li><a href='http://open.163.com/newview/movie/courseintro?newurl=%2Fspecial%2Fcuvocw%2Fgudaizhengzhiwenhua.html'><span>阎步克、邓小南：中国古代政治与文化</span></a></li><li><a href='https://www.bilibili.com/video/BV1c7411f74E?from=search&amp;seid=8230573533517664259'><span>阎步克、邓小南、张帆：中国古代史</span></a></li><li><a href='http://www.icourses.cn/sCourse/course_6487.html'><span>朱孝远：西方文明史导论</span></a></li><li><a href='http://open.163.com/newview/movie/courseintro?newurl=MDNUJVBDG'><span>朱孝远：西方文化史</span></a></li><li><a href='https://www.bilibili.com/video/BV1rx411M7tY?from=search&amp;seid=2566754635327209873'><span>朱孝远：欧洲文艺复兴</span></a></li><li><a href='https://www.bilibili.com/video/BV1Kx411a73X?from=search&amp;seid=2566754635327209873'><span>朱孝远：宗教改革史</span></a></li><li><a href='http://open.163.com/newview/movie/courseintro?newurl=%2Fspecial%2Fcuvocw%2Fwenhuaxingguo.html'><span>朱孝远：文化兴国-欧洲由衰及兴的转折点</span></a></li><li><a href='https://www.bilibili.com/video/av59627562/?spm_id_from=333.788.b_636f6d6d656e74.30'><span>高毅：18~19世纪的欧洲</span></a></li><li><a href='https://www.bilibili.com/video/BV1xt411a7C1?from=search&amp;seid=16235887371267873347'><span>王新生：王新生讲日史</span></a></li><li><a href='https://www.bilibili.com/video/BV1Ct411Z77N?from=search&amp;seid=11589175159309754247'><span>朱青生：艺术史</span></a></li></ul></li></ul><hr /><h2><a name="其他学术资源聚合类网站" class="md-header-anchor"></a><span>其他学术资源聚合类网站</span></h2><ul><li><a href='https://www.douban.com/note/479726144/?type=rec'><span>中国文史研究免费学术资源集</span></a></li><li><a href='https://www.douban.com/note/755008584/'><span>建议收藏！拥有以下网站，再也不愁找不到电子书</span></a></li><li><a href='https://m.sohu.com/a/212064699_612400'><span>地图、古籍、拓片、简牍、书画、考古学……珍贵文献资料大合集</span></a></li><li><a href='http://www.seo96.com/ip/961.html'><span>史学研究：中国近现代史网络资源</span></a></li></ul></div>
+</body>
+</html>
